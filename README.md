@@ -1,44 +1,24 @@
 # Communication Analysis Platform for Human-AI Driving Interactions
 
-An innovative platform that analyzes communication patterns between humans and AI systems during driving simulator experiments. This cutting-edge solution combines advanced speech processing with sentiment analysis to deliver deep insights into interaction dynamics.
+A sophisticated platform for analyzing communication patterns in human-AI driving simulator experiments. This comprehensive solution provides audio processing, transcription, sentiment analysis, and visualization capabilities.
 
-## 🌟 Core Capabilities
+## System Architecture
+![Architecture](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/arch.png)
 
-- **Smart Audio Extraction**: Seamlessly processes video recordings from simulator sessions
-- **High-Precision Speech Recognition**: Leverages Faster-Whisper technology for accurate transcription
-- **Emotional Intelligence**: Incorporates PySentimiento for detailed sentiment mapping
-- **Data Visualization Suite**: Features comprehensive tools for pattern analysis
-- **Performance Optimized**: Handles extended simulation recordings efficiently
+## 🔧 Environment Setup
+**Important Note**: This system has been developed and tested on MacOS with Python 3.10.16. Different operating systems may require adjustments.
 
-## 🔧 System Requirements
+**Initial Setup**: Create a `Videos` directory in your workspace to store simulator recordings for processing.
 
-Optimized for MacOS and Python 3.10.16. Required components:
+### Installation Steps
 
-### Core Dependencies
-- Python 3.10.16
-- ffmpeg
-- sox (audio processing engine)
-- tkinter (GUI framework)
-
-### Project Structure
-```
-project_root/
-├── Videos/          # Simulator session recordings
-├── Audios/         # Processed audio files
-├── Segments/       # Audio segments
-├── Transcriptions/ # Text transcriptions
-└── plots/          # Visual analytics
-```
-
-## 🚀 Setup Guide
-
-1. **Environment Setup**
+1. **Virtual Environment Configuration**
 ```bash
 python -m venv venv
-source venv/bin/activate  # MacOS/Linux
+source venv/bin/activate
 ```
 
-2. **Install ffmpeg**
+2. **FFmpeg Installation**
 ```bash
 # MacOS
 brew install ffmpeg
@@ -46,28 +26,54 @@ brew install ffmpeg
 # Linux
 sudo apt update
 sudo apt install ffmpeg
+
+# Windows: Visit https://ffmpeg.org/download.html
 ```
 
-3. **Install Required Packages**
+3. **Package Installation**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **System Components**
+4. **GUI Dependencies**
 ```bash
 # MacOS
 brew install python-tk@3.10
-brew install sox
 
 # Linux
 sudo apt-get install python3-tk
-sudo apt-get install sox libsox-fmt-all
+
+# Windows: Included with Python
 ```
 
-## 💻 Operation Guide
+5. **Audio Processing Tools**
+```bash
+# MacOS
+brew install sox
 
-1. **System Configuration**
-Customize `config.py` settings:
+# Linux
+sudo apt-get install sox libsox-fmt-all
+
+# Windows: Download from https://sourceforge.net/projects/sox/
+```
+
+## 📊 System Components
+
+### Project Structure
+```bash
+├── Audios/         # Processed audio files
+├── Videos/         # Input video recordings
+├── Segments/       # Audio segments
+├── Transcriptions/ # Generated transcripts
+├── plots/          # Visualization outputs
+├── config.py       # System configuration
+├── main.py         # Core processing
+├── ui.py          # User interface
+└── visualization.py # Data visualization
+```
+
+### Configuration
+Customize settings in `config.py`:
 ```python
 VIDEO_PATH = "Videos"
 AUDIO_PATH = "Audios"
@@ -77,72 +83,79 @@ model_name = "tiny"
 split_length = 2000
 ```
 
-2. **Launch Analysis**
+## 🚀 Operation Guide
+
+### Core Processing
+1. Run the main analysis pipeline:
 ```bash
 python main.py
 ```
 
-3. **Generate Analytics**
+### Visualization
+1. Generate data visualizations:
 ```bash
 python visualization.py
 ```
 
-4. **Access Interface**
+2. Launch the interactive interface:
 ```bash
 python ui.py
 ```
 
-## 📊 Data Visualization Features
-
-The platform offers sophisticated visualization capabilities:
-
-![Word Distribution Analysis](plots/transcription_histogram.png)
-*Word Distribution Analysis: Visualizes communication patterns over time*
-
-![Sentiment Analysis Distribution](plots/sentiment_distribution.png)
-*Sentiment Analysis: Shows emotional content distribution in interactions*
-
-## 🛠 Technical Architecture
+## 💡 Technical Implementation
 
 ### Speech Processing
-- Implements state-of-the-art Faster-Whisper
-- Features Voice Activity Detection
-- Supports segmented processing
+- Utilizes [faster-whisper](https://github.com/SYSTRAN/faster-whisper) with CTranslate2 for efficient transcription
+- Implements Voice Activity Detection (VAD) for precise timestamp mapping
+- Calculates absolute timestamps using: `absolute_start = segment_index * split_length + segment_start (0) + 1`
 
-### Emotion Analysis
-- Utilizes PySentimiento with BERTweet
-- Provides comprehensive sentiment classification
-- Enables real-time analysis
+### Sentiment Analysis
+- Leverages [pysentimiento](https://arxiv.org/pdf/2106.09462) with BERTweet model
+- Provides three-way classification (Positive, Negative, Neutral)
 
-### Visual Analytics
-- Custom temporal analysis algorithms
-- Dynamic visualization generation
-- Interactive data exploration
+![Benchmarks](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/Screenshot%202025-03-31%20at%201.08.20%E2%80%AFAM.png)
 
-## 🎯 Roadmap
+## 📱 Interface & Visualizations
 
-- Multi-speaker recognition system
-- Enhanced emotion detection models
-- Live processing capabilities
-- Advanced visualization tools
-- System performance enhancements
+### System Interface
+![Start Screen](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/start.png)
+![Processing View](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/running.png)
 
-## 🖥 Interface Overview
+### Data Processing
+![CSV Output](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/csv.png)
+![Visualization Interface](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/viz.png)
 
-The system features a modern interface for:
-- Data ingestion and processing
-- Analytics visualization
-- Results analysis
-- Export functionality
+### Analysis Outputs
+![Sentiment Distribution](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/sentiment_distribution.png)
+![Communication Pattern](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/transcription_histogram.png)
 
-## 💡 Applications
+### User Interface Flow
+![UI Main](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/ui.png)
+![File Upload](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/ui_upload.png)
+![Results Display](https://github.com/Kitsunnneee/Communication-Analysis-Tool-for-Human-AI-Interaction-Driving-Simulator-Experiments-Screening-Test/blob/main/assets/plot_ui.png)
 
-- Human-AI interaction research
-- Simulator communication studies
-- Pattern visualization and analysis
-- Emotional response tracking
+## 🧪 Quality Assurance
 
-This platform represents a comprehensive solution for analyzing human-AI communication in driving simulations, offering researchers and developers powerful tools for understanding interaction dynamics.
+The system employs comprehensive unit testing using Python's `unittest` framework:
+
+```bash
+python -m unittest discover -s test -p "test_*.py" -v
+```
+
+### Test Coverage
+- **Utilities**: Directory handling, audio extraction, and segmentation
+- **Speech Processing**: Transcription accuracy and VAD functionality
+- **Sentiment Analysis**: Classification validation
+- **Visualization**: Plot generation verification
+- **Interface**: Component validation and file handling
+
+## 🔮 Future Developments
+
+- Advanced sentiment analysis models
+- Multi-speaker identification
+- Enhanced user interface
+- Integration of optimized speech processing engines
+- Performance optimization for large-scale analysis
 
 
 

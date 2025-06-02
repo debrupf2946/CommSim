@@ -11,3 +11,4 @@ analysis_log.txt
 .DS_Store
 .AppleDouble
 .LSOverride
+.env

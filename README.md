@@ -1,41 +1,41 @@
-# AI-Powered Communication Analysis System for Driving Simulator Interactions
+# Communication Analysis Platform for Human-AI Driving Interactions
 
-A sophisticated tool designed to analyze and visualize human-AI communication patterns in driving simulator experiments. This project leverages cutting-edge speech recognition and sentiment analysis to provide insights into communication dynamics during simulated driving scenarios.
+An innovative platform that analyzes communication patterns between humans and AI systems during driving simulator experiments. This cutting-edge solution combines advanced speech processing with sentiment analysis to deliver deep insights into interaction dynamics.
 
-## 🚀 Features
+## 🌟 Core Capabilities
 
-- **Automated Audio Processing**: Extracts audio from video recordings of driving simulator sessions
-- **Advanced Speech Recognition**: Utilizes Faster-Whisper for accurate speech-to-text conversion
-- **Sentiment Analysis**: Implements PySentimiento for nuanced emotion detection in conversations
-- **Interactive Visualization**: Custom UI for generating insightful communication pattern graphs
-- **Real-time Processing**: Efficient handling of long-duration simulator recordings
+- **Smart Audio Extraction**: Seamlessly processes video recordings from simulator sessions
+- **High-Precision Speech Recognition**: Leverages Faster-Whisper technology for accurate transcription
+- **Emotional Intelligence**: Incorporates PySentimiento for detailed sentiment mapping
+- **Data Visualization Suite**: Features comprehensive tools for pattern analysis
+- **Performance Optimized**: Handles extended simulation recordings efficiently
 
-## 📋 Prerequisites
+## 🔧 System Requirements
 
-This project has been optimized for MacOS and Python 3.10.16. Here's what you need to get started:
+Optimized for MacOS and Python 3.10.16. Required components:
 
-### Essential Software
+### Core Dependencies
 - Python 3.10.16
 - ffmpeg
-- sox (for audio processing)
-- tkinter (for UI components)
+- sox (audio processing engine)
+- tkinter (GUI framework)
 
-### Directory Structure
+### Project Structure
 ```
 project_root/
-├── Videos/          # Place your simulator recordings here
-├── Audios/          # Processed audio files
-├── Segments/        # Split audio segments
-├── Transcriptions/  # Generated transcription files
-└── plots/           # Visualization outputs
+├── Videos/          # Simulator session recordings
+├── Audios/         # Processed audio files
+├── Segments/       # Audio segments
+├── Transcriptions/ # Text transcriptions
+└── plots/          # Visual analytics
 ```
 
-## 🛠️ Installation
+## 🚀 Setup Guide
 
-1. **Set up Virtual Environment**
+1. **Environment Setup**
 ```bash
 python -m venv venv
-source venv/bin/activate  # For MacOS/Linux
+source venv/bin/activate  # MacOS/Linux
 ```
 
 2. **Install ffmpeg**
@@ -48,12 +48,12 @@ sudo apt update
 sudo apt install ffmpeg
 ```
 
-3. **Install Dependencies**
+3. **Install Required Packages**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Install Additional Components**
+4. **System Components**
 ```bash
 # MacOS
 brew install python-tk@3.10
@@ -64,10 +64,10 @@ sudo apt-get install python3-tk
 sudo apt-get install sox libsox-fmt-all
 ```
 
-## 💻 Usage
+## 💻 Operation Guide
 
-1. **Configure Settings**
-Edit `config.py` to set your preferences:
+1. **System Configuration**
+Customize `config.py` settings:
 ```python
 VIDEO_PATH = "Videos"
 AUDIO_PATH = "Audios"
@@ -77,69 +77,72 @@ model_name = "tiny"
 split_length = 2000
 ```
 
-2. **Process Videos and Generate Analysis**
+2. **Launch Analysis**
 ```bash
 python main.py
 ```
 
-3. **Generate Visualizations**
+3. **Generate Analytics**
 ```bash
 python visualization.py
 ```
 
-4. **Launch Interactive UI**
+4. **Access Interface**
 ```bash
 python ui.py
 ```
 
-## 📊 Visualization Features
+## 📊 Data Visualization Features
 
-The project offers two main types of visualizations:
+The platform offers sophisticated visualization capabilities:
 
-1. **Word Count Distribution**: Histogram showing communication density over time
-2. **Sentiment Distribution**: Pie chart displaying the emotional content distribution
+![Word Distribution Analysis](plots/transcription_histogram.png)
+*Word Distribution Analysis: Visualizes communication patterns over time*
 
-## 🔧 Technical Implementation
+![Sentiment Analysis Distribution](plots/sentiment_distribution.png)
+*Sentiment Analysis: Shows emotional content distribution in interactions*
 
-### Speech Recognition
-- Implements Faster-Whisper for optimized transcription
-- Utilizes Voice Activity Detection (VAD) for accurate timestamp mapping
-- Processes audio in segments for improved accuracy
+## 🛠 Technical Architecture
 
-### Sentiment Analysis
-- Employs PySentimiento with BERTweet model
-- Provides three-way classification: Positive, Negative, Neutral
-- Real-time sentiment processing capabilities
+### Speech Processing
+- Implements state-of-the-art Faster-Whisper
+- Features Voice Activity Detection
+- Supports segmented processing
 
-### Data Visualization
-- Custom bucketing algorithm for time-series analysis
-- Dynamic plot generation based on transcription data
-- Interactive UI for data exploration
+### Emotion Analysis
+- Utilizes PySentimiento with BERTweet
+- Provides comprehensive sentiment classification
+- Enables real-time analysis
 
-## 🎯 Future Enhancements
+### Visual Analytics
+- Custom temporal analysis algorithms
+- Dynamic visualization generation
+- Interactive data exploration
 
-- Integration of multi-speaker detection
-- Enhanced sentiment analysis with custom model training
-- Real-time processing capabilities
-- Advanced visualization options
-- Performance optimizations for larger datasets
+## 🎯 Roadmap
 
-## 🖼️ Interface Preview
+- Multi-speaker recognition system
+- Enhanced emotion detection models
+- Live processing capabilities
+- Advanced visualization tools
+- System performance enhancements
 
-The application features an intuitive interface for:
-- File upload and processing
-- Visualization generation
-- Data analysis display
-- Result export capabilities
+## 🖥 Interface Overview
 
-## 💡 Use Cases
+The system features a modern interface for:
+- Data ingestion and processing
+- Analytics visualization
+- Results analysis
+- Export functionality
 
-- Research in human-AI interaction patterns
-- Driving simulator communication analysis
-- Communication pattern visualization
-- Sentiment trend analysis in controlled environments
+## 💡 Applications
 
-This tool serves as a comprehensive solution for analyzing communication patterns in driving simulator experiments, providing valuable insights for researchers and developers working on human-AI interaction systems.
+- Human-AI interaction research
+- Simulator communication studies
+- Pattern visualization and analysis
+- Emotional response tracking
+
+This platform represents a comprehensive solution for analyzing human-AI communication in driving simulations, offering researchers and developers powerful tools for understanding interaction dynamics.
 
 
 
